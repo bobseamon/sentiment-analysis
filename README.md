@@ -1,6 +1,8 @@
 # sentiment-analysis
 ## An On-Demand Sentiment Analysis Engine (AWS Serverless MLOps)
 
+---
+
 ## Project Overview
 
 This project is a complete, end-to-end MLOps system that deploys a sentiment analysis model in a cost-effective, on-demand, and serverless manner. A user can visit the web application, start the model with the click of a button, and receive an SMS notification when it's ready. The model then automatically shuts down after 30 minutes to minimize costs.
