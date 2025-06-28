@@ -68,7 +68,7 @@ This project demonstrates a wide range of MLOps and cloud architecture skills:
 ### Backend Setup
 
 1.  **IAM Roles:** Create the necessary IAM Roles for Glue, SageMaker, and Lambda as detailed in the project's development history.
-2.  **Data Processing:** Use Run the AWS Glue job to process the raw data, and `Data-Exploration.ipynb` to explore the processed data.
+2.  **Data Processing:** Run the AWS Glue job to process the raw data, and `Data-Exploration.ipynb` to explore the processed data.
 3.  **Model Training:** Use the `Train-Deploy-Model.ipynb` notebook to launch the SageMaker Training Job. This will create the trained model artifact in S3.
 4.  **Serverless Backend:**
     * Create the `SentimentModelState` DynamoDB table and populate the initial item.
