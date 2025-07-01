@@ -9,7 +9,7 @@ This project is a complete, end-to-end MLOps system that deploys a sentiment ana
 
 The core of the project is a DistilBERT model, fine-tuned on the Amazon Customer Reviews dataset, capable of classifying text as POSITIVE or NEGATIVE. The entire infrastructure is built on AWS and features an event-driven architecture.
 
-**Live Demo:** `[Link to your deployed Streamlit App will go here]`
+**Live Demo:** `[https://www.bobseamon.com/sentiment.html]`
 
 ---
 
