@@ -58,9 +58,51 @@ This project demonstrates a wide range of MLOps and cloud architecture skills:
 
 ---
 
-## Setup & Usage
+## Use Cases
 
-*(This section is for another developer who might want to run your project)*
+### Query Sagemaker Endpoint to see if it is running
+
+As a User, since the Sagemaker Endpoint is not running 24/7, when I come to the sentiment analysis web page, I want to know whether or not the SageMaker endpoint is running.  If it is running, I want to ensure that it will stay running while I perform some sentiment analysis queries.
+
+#### Sequence Diagram
+
+![Is running sequence diagram](images/load-page-check-model.png)
+
+### Start the Sagemaker Endpoint
+
+As a User, if the Sagemaker Endpoint is not running 24/7, I want to be able to start the Sagemaker Endpoint.  Since the start process isn't immediate, I want to be notified by a SMS text message when it is up and running.
+
+#### Sequence Diagram
+
+![Start Endpoint Sequence Diagram](images/start-model.png)
+
+### Predict - Sentiment Analysis
+
+As a User, I want to be able to submit a text message to be able to predict its sentiment of either positive or negative
+
+#### Sequence Diagram
+
+![Predict Sentiment Analysis Sequence Diagram](images/predict-sentiment.png)
+
+### Event - Sagemaker Endpoint In Service
+
+As a User, I want to be notified when the Sagemaker Endpoint becomes ready to use.  Since the Sagemaker endpoint does not need to be used continuously, I want to schedule it to shut down after 30 minutes.
+
+#### Sequence Diagram
+
+![Event - Sagemaker In Service Sequence Diagram](images/event-endpoint-in-service.png)
+
+### Event - Timer Expired
+
+From a System's Admin perspective, I want the Sagemaker Endpoint to be shut down after 30 minutes of inactivity.  If the endpoint is only used once or twice a day, this will save me about 96% in operating costs vs. running the Sagemaker Endpoint 24/7.
+
+#### Sequence Diagram
+
+![Shutdown Sequence Diagram](images/event-timer-expired.png)
+
+---
+
+## Setup & Usage
 
 ### Prerequisites
 
