@@ -19,9 +19,9 @@ This diagram illustrates the two main workflows: the on-demand startup/shutdown 
 
 ### Runtime Architecture
 
-![Project Architecture Diagram](Architecture.png)
+![Project Architecture Diagram](images/Architecture.png)
 
-![Development and Monitoring Components](Deveopment.png)
+![Development and Monitoring Components](images/Deveopment.png)
 
 ---
 
