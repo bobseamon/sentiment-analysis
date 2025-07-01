@@ -17,16 +17,18 @@ The core of the project is a DistilBERT model, fine-tuned on the Amazon Customer
 
 This diagram illustrates the two main workflows: the on-demand startup/shutdown cycle and the prediction pipeline.
 
-*(Here you will embed the image of the architecture diagram you create in the next step. It's a huge plus for any portfolio!)*
+### Runtime Architecture
 
-![Project Architecture Diagram](architecture.png)
+![Project Architecture Diagram](Architecture.png)
+
+![Development and Monitoring Components](Deveopment.png)
 
 ---
 
 ## Tech Stack
 
 * **Cloud Provider:** Amazon Web Services (AWS)
-* **Machine Learning:** Amazon SageMaker (Training Jobs, Endpoints)
+* **Machine Learning:** Amazon SageMaker AI (Training Jobs, Endpoints)
 * **Serverless Compute:** AWS Lambda
 * **API Layer:** Amazon API Gateway
 * **Database / State Management:** Amazon DynamoDB
