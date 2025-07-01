@@ -1,0 +1,51 @@
+sequenceDiagram
+    actor User
+    participant CF as CloudFront
+    participant WP as Web Page
+    participant AG as API Gateway
+    participant L as Lambda
+    participant SM as Sagemaker Endpoint
+    participant EB as EventBridge
+    participant DB as DynamoDB
+    participant SNS
+
+
+    User-->>CF: Load Site
+    CF-->User: Return Web Page
+    WP-->>AG: /status
+    AG-->>L: is-model-service-running
+    L-->>DB: Check Model State
+    L-->>EB: extend shutdown timer
+    L-->>AG: Return Model State
+    AG-->>WP: Update Model State
+    WP-->>WP: Update UI
+
+    User-->>WP: Start Model
+    WP-->>AG: /start
+    AG-->>L: start-model-service
+    L-->>SM: deploy
+    L-->>EB: register for "In Service" event
+    L-->>DB: update model state (starting)
+    L-->>DB: add user to be notified
+    L-->>AG: return succcess
+
+    SM-->>EB: Event - Endpoint in Service
+    EB-->>L: notification-and-shutdown-scheduler
+    L-->>DB: Update model State (running)
+    L-->>EB: Scheduler - Create Shutdown Schedule
+    L-->>DB: Get users to be notified
+    L-->>SNS: Notify User Endpoint In Service
+    L-->>DB: Clear users to be notified
+    
+    User-->>WP: Analyze Sentiment
+    WP-->>AG: /predict
+    AG-->>L: invoke-sagemaker-endpoint
+    L-->>SM: predict
+    SM-->>L: result
+    L-->>AG: result
+    AG-->>WP: Update UI
+    
+    SM-->>SM: Timer expired
+    SM-->>L: shutdown-endpoint
+    L-->>SM: Delete Endpoint
+    L-->>DB: Update model state (stopped)
